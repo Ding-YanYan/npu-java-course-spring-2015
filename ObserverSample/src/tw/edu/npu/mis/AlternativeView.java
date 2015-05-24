@@ -30,9 +30,9 @@ package tw.edu.npu.mis;
  *
  * @author STP
  */
-public class AlternativeView implements Observer {
+public class AlternativeView implements Observer , Showable{
     private final Model mModel;
-    private boolean mIsValid;
+    //private boolean mIsValid;
     
     private final String mName;
     private final Window mWindow;
@@ -46,21 +46,31 @@ public class AlternativeView implements Observer {
         mName = name;
         mWindow = window;
         mModel = model;
+        mModel.attach(this);
     }
     
-    public boolean isValid() {
+    private void invalidate() {
+        mWindow.schduleRedraw(this);
+    }
+   /* public boolean isValid() {
         return mIsValid;
     }
     
-    public void show() {
-        System.out.print("AlternativeView: ");
+      public void show() {
+        System.out.print("View: ");
         System.out.println(new StringBuilder(mModel.getData()).reverse());
         mIsValid = true;
+    }
+    */
+    public void onDraw() {
+        System.out.println("AlternativeView (" + mName + "): "+ new StringBuilder(mModel.getData()).reverse());
+        //mIsValid = false;
     }
     
     @Override
     public void update() {
-        show();
+        invalidate();
         //mIsValid = false;
     }
+    
 }
