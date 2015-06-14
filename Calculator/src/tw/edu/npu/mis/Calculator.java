@@ -97,7 +97,9 @@ public class Calculator extends Observable {
                 notifyObservers();
                 break;
             case CLEAR_ENTRY: // CE
-
+                mNumber = "0";
+                setChanged();
+                notifyObservers();
                 break;
 
         }
