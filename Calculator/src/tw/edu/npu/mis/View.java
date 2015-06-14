@@ -9,14 +9,14 @@ import tw.edu.npu.mis.Calculator.Operator;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author STP
  */
-public class View extends javax.swing.JFrame implements Observer{
+public class View extends javax.swing.JFrame implements Observer {
 
     Calculator mCalculator = new Calculator();
+
     /**
      * Creates new form View
      */
@@ -24,7 +24,7 @@ public class View extends javax.swing.JFrame implements Observer{
         mCalculator.addObserver(this);
         initComponents();
     }
-    
+
     @Override
     public void update(Observable o, Object arg) {
         jLabel1.setText(mCalculator.getDisplay());
@@ -151,8 +151,13 @@ public class View extends javax.swing.JFrame implements Observer{
             }
         });
 
-        jButton11.setFont(new java.awt.Font("新細明體", 0, 36)); // NOI18N
+        jButton11.setFont(new java.awt.Font("新細明體", 0, 24)); // NOI18N
         jButton11.setText(".");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jButton12.setFont(new java.awt.Font("新細明體", 0, 30)); // NOI18N
         jButton12.setText("+");
@@ -408,7 +413,7 @@ public class View extends javax.swing.JFrame implements Observer{
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-       mCalculator.performOperation(Operator.PLUS);
+        mCalculator.performOperation(Operator.PLUS);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -451,7 +456,11 @@ public class View extends javax.swing.JFrame implements Observer{
         mCalculator.performOperation(Operator.CLEAR_ENTRY);
     }//GEN-LAST:event_jButton17ActionPerformed
 
-      /**
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        mCalculator.appendDot();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -485,7 +494,7 @@ public class View extends javax.swing.JFrame implements Observer{
             }
         });
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
