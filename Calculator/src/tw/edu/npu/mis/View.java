@@ -238,7 +238,6 @@ public class View extends javax.swing.JFrame implements Observer {
             }
         });
 
-        jButton22.setFont(new java.awt.Font("新細明體", 0, 14)); // NOI18N
         jButton22.setText("1/x");
         jButton22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

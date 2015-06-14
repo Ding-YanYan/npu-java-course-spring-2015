@@ -60,21 +60,48 @@ public class Calculator extends Observable {
         switch (operator) {
 
             case EQUAL: //=
+                //Double字串轉數字  要清空 mSecNumber = "";mOperator = "";
 
                 break;
             case PLUS: //+
-
+                if (mNumber.length() != 0) {
+                    mSecNumber = mNumber;
+                    mNumber = "";
+                    mOperator = "+";
+                    setChanged();
+                    notifyObservers();
+                }
                 break;
             case MINUS: //-
+                if (mNumber.length() != 0) {
+                    mSecNumber = mNumber;
+                    mNumber = "";
+                    mOperator = "-";
+                    setChanged();
+                    notifyObservers();
+                }
 
                 break;
             case TIMES: //*
-
+                if (mNumber.length() != 0) {
+                    mSecNumber = mNumber;
+                    mNumber = "";
+                    mOperator = "*";
+                    setChanged();
+                    notifyObservers();
+                }
                 break;
             case OVER: // ⁄
-
+                if (mNumber.length() != 0) {
+                    mSecNumber = mNumber;
+                    mNumber = "";
+                    mOperator = " /";
+                    setChanged();
+                    notifyObservers();
+                }
                 break;
             case PLUS_MINUS: // ±
+                //正數直接加負號，負號轉正數用0.0去減
 
                 break;
             case RECIPROCAL: // 1/x
@@ -107,8 +134,8 @@ public class Calculator extends Observable {
     }
 
     public String getDisplay() {
-
-        return mNumber;
+        String ans = mSecNumber + mOperator + mNumber;
+        return ans;
     }
 
     /**
