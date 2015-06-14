@@ -36,7 +36,9 @@ public class Calculator extends Observable{
     }
     
     public void appendDigit(int digit) {
-        // TODO code application logic here
+        mNumber += String.valueOf(digit);
+        setChanged();
+        notifyObservers();
     }
     
     public void appendDot() {
@@ -56,7 +58,7 @@ public class Calculator extends Observable{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        new View().setVisible(true);
     }
 
 }
