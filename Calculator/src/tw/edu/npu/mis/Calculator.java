@@ -5,11 +5,13 @@
  */
 package tw.edu.npu.mis;
 
+import java.util.Observable;
+
 /**
  * The model class of the calculator application.
  */
-public class Calculator {
-    
+public class Calculator extends Observable{
+    String mNumber = "";
     /**
      * The available operators of the calculator.
      */
@@ -46,8 +48,8 @@ public class Calculator {
     }
     
     public String getDisplay() {
-        // TODO code application logic here
-        return null;
+        
+        return mNumber;
     }
 
     /**

@@ -1,5 +1,8 @@
 package tw.edu.npu.mis;
 
+import java.util.Observable;
+import java.util.Observer;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,7 +13,7 @@ package tw.edu.npu.mis;
  *
  * @author STP
  */
-public class View extends javax.swing.JFrame {
+public class View extends javax.swing.JFrame implements Observer{
 
     Calculator mCalculator = new Calculator();
     /**
@@ -18,6 +21,11 @@ public class View extends javax.swing.JFrame {
      */
     public View() {
         initComponents();
+    }
+    
+    @Override
+    public void update(Observable o, Object arg) {
+        jLabel1.setText(mCalculator.getDisplay());
     }
 
     /**
@@ -323,4 +331,5 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
 }
